@@ -1,0 +1,32 @@
+import itertools, os
+
+#warna
+aa='\033[1;32m'
+bb='\033[1;31m'
+cc='\033[1;33m'
+dd='\033[1;35m'
+ee='\033[1;36m'
+
+def pwd():
+ try:
+  char=input(aa+'\n['+bb+'√'+aa+']'+cc+'Enter character: ')
+  length=input(aa+'['+bb+'√'+aa+']'+cc+'Enter length of password: ')
+  file=open('pass.txt','w')
+  l = itertools.product(char,repeat=int(length))
+  print(aa+'['+bb+'√'+aa+']'+cc+'Your password list done!')
+  print(aa+'['+bb+'√'+aa+']'+cc+'File save in pass.txt')
+
+  for i in l:
+    file.write("".join(i)+'\n')
+  file.close()
+ except KeyboardInterrupt:
+   print('[!]GoodBye...')
+
+if __name__=='__main__':
+  #banner
+  os.system('cls' if os.name=='nt' else 'clear')
+  print (dd+'	      ╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗╔╗╔	')
+  print (ee+'	      ╠═╝╠═╣╚═╗╚═╗║ ╦║╣ ║║║	')
+  print (dd+'	      ╩  ╩ ╩╚═╝╚═╝╚═╝╚═╝╝╚╝	')
+  print ('\x1b[5;37;41m	Password Generator Lawas Version	\x1b[0m')
+  pwd()
